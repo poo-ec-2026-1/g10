@@ -1,0 +1,79 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Pokemon {
+  -int id
+  -String nome
+  -int hp
+  -int ataque
+  -int defesa
+  -int velocidade
+}
+
+class Golpe {
+  -int id
+  -String nome
+  -String tipo
+  -int poder
+  -int precisao
+  -String categoria
+}
+
+class Nature {
+  -int id
+  -String nome
+  -String statSobe
+  -String statDesce
+}
+
+class TipoEfetividade {
+  -String tipoAtacante
+  -String tipoDefensor
+  -double multiplicador
+}
+
+class Database {
+  +conectar()
+  +executarQuery()
+}
+
+class PokemonRepository {
+  +salvar(Pokemon p)
+  +buscarPorId(int id) Pokemon
+  +listarTodos() List<Pokemon>
+}
+class GolpeRepository {
+  +salvar(Golpe g)
+  +listarTodos() List<Golpe>
+}
+class NatureRepository {
+  +salvar(Nature n)
+  +listarTodos() List<Nature>
+}
+class TipoEfetividadeRepository {
+  +salvar(TipoEfetividade t)
+  +listarTodos() List<TipoEfetividade>
+}
+
+class PopularBanco {
+  +main(String[] args)
+}
+
+Pokemon "*" -- "*" Golpe : conhece
+Pokemon "*" --> "1" Nature : tem
+
+PokemonRepository --> Database : usa
+GolpeRepository --> Database : usa
+NatureRepository --> Database : usa
+TipoEfetividadeRepository --> Database : usa
+
+PokemonRepository ..> Pokemon : gerencia
+GolpeRepository ..> Golpe : gerencia
+NatureRepository ..> Nature : gerencia
+TipoEfetividadeRepository ..> TipoEfetividade : gerencia
+
+PopularBanco --> PokemonRepository
+PopularBanco --> GolpeRepository
+PopularBanco --> NatureRepository
+PopularBanco --> TipoEfetividadeRepository
+@enduml
