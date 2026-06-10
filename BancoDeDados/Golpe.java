@@ -1,0 +1,48 @@
+import com.j256.ormlite.table.DatabaseTable;
+import com.j256.ormlite.field.DatabaseField;
+
+/**
+ * Catalogo de golpes. Entidade plana.
+ */
+@DatabaseTable(tableName = "golpe")
+public class Golpe
+{
+    @DatabaseField(generatedId = true)
+    private int id;
+
+    @DatabaseField
+    private String nome;
+
+    @DatabaseField
+    private String tipo;
+
+    @DatabaseField(canBeNull = true)        // golpes de status nao tem poder
+    private Integer poder;
+
+    @DatabaseField(canBeNull = true)
+    private Integer precisao;
+
+    @DatabaseField
+    private String categoria;                // Physical / Special / Status
+
+    public Golpe() {
+    }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+    public Integer getPoder() { return poder; }
+    public void setPoder(Integer poder) { this.poder = poder; }
+
+    public Integer getPrecisao() { return precisao; }
+    public void setPrecisao(Integer precisao) { this.precisao = precisao; }
+
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+}
