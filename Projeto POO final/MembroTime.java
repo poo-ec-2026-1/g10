@@ -1,0 +1,86 @@
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+import java.io.Serializable;
+
+@DatabaseTable(tableName = "membros_time")
+public class MembroTime implements Serializable {
+
+    public static final String COL_ID = "id";
+    public static final String COL_EQUIPE = "equipe_id";
+    public static final String COL_POKEMON = "pokemon_id";
+    public static final String COL_NATURE = "nature";
+    public static final String COL_GOLPE = "golpe";
+
+    @DatabaseField(columnName = COL_ID, generatedId = true)
+    private Integer id;
+
+    @DatabaseField(columnName = COL_EQUIPE, foreign = true, foreignAutoRefresh = true, canBeNull = false)
+    private Equipe equipe;
+
+    @DatabaseField(columnName = COL_POKEMON, foreign = true, foreignAutoRefresh = true, canBeNull = false)
+    private Pokemon pokemon;
+
+    @DatabaseField(columnName = COL_NATURE, canBeNull = false)
+    private String nature;
+
+    @DatabaseField(columnName = COL_GOLPE, canBeNull = false)
+    private String golpe;
+
+    public MembroTime() {
+        // Construtor vazio exigido pelo ORMLite
+    }
+    
+        // Construtor prático para quando estamos montando o time na tela (ainda sem equipe salva)
+    public MembroTime(Pokemon pokemon) {
+        this.pokemon = pokemon;
+        this.nature = "Nenhuma";
+        this.golpe = pokemon.getGolpe();
+    }
+
+    public MembroTime(Equipe equipe, Pokemon pokemon, String nature, String golpe) {
+        this.equipe = equipe;
+        this.pokemon = pokemon;
+        this.nature = nature;
+        this.golpe = golpe;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Equipe getEquipe() {
+        return equipe;
+    }
+
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
+    }
+
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
+
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
+    }
+
+    public String getNature() {
+        return nature;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
+
+    public String getGolpe() {
+        return golpe;
+    }
+
+    public void setGolpe(String golpe) {
+        this.golpe = golpe;
+    }
+}

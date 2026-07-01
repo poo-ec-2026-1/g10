@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=GolpeRepository
+comment0.text=\r\n\ Repositorio\ de\ Golpe\ (padrao\ Repository,\ igual\ ao\ do\ tutorial).\r\n
+comment1.params=database
+comment1.target=GolpeRepository(Database)
+comment2.params=database
+comment2.target=void\ setDatabase(Database)
+comment3.params=golpe
+comment3.target=Golpe\ create(Golpe)
+comment4.params=id
+comment4.target=Golpe\ loadFromId(int)
+comment5.params=nome
+comment5.target=Golpe\ loadByName(java.lang.String)
+comment5.text=Busca\ um\ golpe\ pelo\ nome\ (util\ pro\ card\ mostrar\ tipo/poder).
+comment6.params=
+comment6.target=java.util.List\ loadAll()
+numComments=7

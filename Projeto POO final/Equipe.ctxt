@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Equipe
+comment1.params=
+comment1.target=Equipe()
+comment2.params=nome
+comment2.target=Equipe(java.lang.String)
+comment3.params=
+comment3.target=java.lang.Integer\ getId()
+comment4.params=id
+comment4.target=void\ setId(java.lang.Integer)
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=nome
+comment6.target=void\ setNome(java.lang.String)
+numComments=7

@@ -1,0 +1,92 @@
+nome,tipo,poder,precisao,categoria
+Absorb,Grass,20,100,Special
+Acid,Poison,40,100,Special
+Aurora Beam,Ice,65,100,Special
+Barrage,Normal,15,85,Physical
+Barrier,Psychic,,,Status
+Bite,Dark,60,100,Physical
+Blizzard,Ice,110,70,Special
+Body Slam,Normal,85,100,Physical
+Bone Club,Ground,65,85,Physical
+Bonemerang,Ground,50,90,Physical
+Bubble Beam,Water,65,100,Special
+Clamp,Water,35,85,Physical
+Confusion,Psychic,50,100,Special
+Crabhammer,Water,100,90,Physical
+Cross Chop,Fighting,100,80,Physical
+Cut,Normal,50,95,Physical
+Dig,Ground,80,100,Physical
+Dizzy Punch,Normal,70,100,Physical
+Drill Peck,Flying,80,100,Physical
+Earthquake,Ground,100,100,Physical
+Egg Bomb,Normal,100,75,Physical
+Ember,Fire,40,100,Special
+Explosion,Normal,250,100,Physical
+Fire Blast,Fire,110,85,Special
+Fire Punch,Fire,75,100,Physical
+Flamethrower,Fire,90,100,Special
+Glare,Normal,,100,Status
+Guillotine,Normal,,30,Physical
+Gust,Flying,40,100,Special
+Harden,Normal,,,Status
+Hi Jump Kick,Fighting,130,90,Physical
+Horn Attack,Normal,65,100,Physical
+Horn Drill,Normal,,30,Physical
+Hydro Pump,Water,110,80,Special
+Hyper Beam,Normal,150,90,Special
+Hyper Fang,Normal,80,90,Physical
+Hypnosis,Psychic,,60,Status
+Ice Beam,Ice,90,100,Special
+Karate Chop,Fighting,50,100,Physical
+Leech Life,Bug,80,100,Physical
+Lick,Ghost,30,100,Physical
+Lovely Kiss,Normal,,75,Status
+Low Kick,Fighting,50,100,Physical
+Mach Punch,Fighting,40,100,Physical
+Metronome,Normal,,,Status
+Moonblast,Fairy,95,100,Special
+Night Shade,Ghost,,100,Special
+Pay Day,Normal,40,100,Physical
+Peck,Flying,35,100,Physical
+Petal Dance,Grass,120,100,Special
+Poison Sting,Poison,15,100,Physical
+Psybeam,Psychic,65,100,Special
+Psychic,Psychic,90,100,Special
+Quick Attack,Normal,40,100,Physical
+Razor Leaf,Grass,55,95,Physical
+Rock Slide,Rock,75,90,Physical
+Rock Throw,Rock,50,90,Physical
+Sand Attack,Ground,,100,Status
+Scratch,Normal,40,100,Physical
+Seismic Toss,Fighting,,100,Physical
+Shadow Ball,Ghost,80,100,Special
+Sing,Normal,,55,Status
+Slam,Normal,80,75,Physical
+Slash,Normal,70,100,Physical
+Sludge,Poison,65,100,Special
+Sludge Bomb,Poison,90,100,Special
+Smog,Poison,30,70,Special
+Soft-Boiled,Normal,,,Status
+Solar Beam,Grass,120,100,Special
+Sonic Boom,Normal,,90,Special
+Spike Cannon,Normal,20,100,Physical
+Splash,Normal,,,Status
+Spore,Grass,,100,Status
+String Shot,Bug,,95,Status
+Submission,Fighting,80,80,Physical
+Surf,Water,90,100,Special
+Swift,Normal,60,,Special
+Teleport,Psychic,,,Status
+Thunder,Electric,110,70,Special
+Thunder Punch,Electric,75,100,Physical
+Thunder Shock,Electric,40,100,Special
+Thunderbolt,Electric,90,100,Special
+Transform,Normal,,,Status
+Tri Attack,Normal,80,100,Special
+Twineedle,Bug,25,100,Physical
+Vine Whip,Grass,45,100,Physical
+Vise Grip,Normal,55,100,Physical
+Water Gun,Water,40,100,Special
+Waterfall,Water,80,100,Physical
+Wing Attack,Flying,60,100,Physical
+Wrap,Normal,15,90,Physical

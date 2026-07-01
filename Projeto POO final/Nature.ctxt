@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Nature
+comment0.text=\r\n\ Nature\:\ sobe\ uma\ stat\ e\ baixa\ outra\ (HP\ nunca\ muda).\r\n\ As\ neutras\ tem\ statAumentada/statReduzida\ nulos.\r\n
+comment1.params=
+comment1.target=Nature()
+comment2.params=
+comment2.target=int\ getId()
+comment3.params=id
+comment3.target=void\ setId(int)
+comment4.params=
+comment4.target=java.lang.String\ getNome()
+comment5.params=nome
+comment5.target=void\ setNome(java.lang.String)
+comment6.params=
+comment6.target=java.lang.String\ getStatAumentada()
+comment7.params=statAumentada
+comment7.target=void\ setStatAumentada(java.lang.String)
+comment8.params=
+comment8.target=java.lang.String\ getStatReduzida()
+comment9.params=statReduzida
+comment9.target=void\ setStatReduzida(java.lang.String)
+numComments=10
