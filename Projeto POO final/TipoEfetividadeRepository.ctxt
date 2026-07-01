@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=TipoEfetividadeRepository
+comment0.text=\r\n\ Repositorio\ da\ tabela\ de\ efetividade\ (TypeChart).\r\n
+comment1.params=database
+comment1.target=TipoEfetividadeRepository(Database)
+comment2.params=database
+comment2.target=void\ setDatabase(Database)
+comment3.params=te
+comment3.target=TipoEfetividade\ create(TipoEfetividade)
+comment4.params=
+comment4.target=java.util.List\ loadAll()
+numComments=5

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Database
+comment0.text=\r\n\ Gerencia\ a\ conexao\ com\ o\ banco\ SQLite\ via\ ORMLite.\r\n\ (Mesmo\ padrao\ do\ tutorial\ do\ professor.)\r\n
+comment1.params=databaseName
+comment1.target=Database(java.lang.String)
+comment2.params=
+comment2.target=com.j256.ormlite.jdbc.JdbcConnectionSource\ getConnection()
+comment3.params=
+comment3.target=void\ close()
+numComments=4

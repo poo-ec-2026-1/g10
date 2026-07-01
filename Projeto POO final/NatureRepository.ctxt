@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=NatureRepository
+comment0.text=\r\n\ Repositorio\ de\ Nature\ (padrao\ Repository,\ igual\ ao\ do\ tutorial).\r\n
+comment1.params=database
+comment1.target=NatureRepository(Database)
+comment2.params=database
+comment2.target=void\ setDatabase(Database)
+comment3.params=nature
+comment3.target=Nature\ create(Nature)
+comment4.params=id
+comment4.target=Nature\ loadFromId(int)
+comment5.params=
+comment5.target=java.util.List\ loadAll()
+numComments=6

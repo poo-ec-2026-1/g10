@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=MembroTimeRepository
+comment1.params=connectionSource
+comment1.target=MembroTimeRepository(com.j256.ormlite.support.ConnectionSource)
+comment2.params=membro
+comment2.target=MembroTime\ salvar(MembroTime)
+comment3.params=id
+comment3.target=MembroTime\ buscarPorId(java.lang.Integer)
+comment4.params=
+comment4.target=java.util.List\ buscarTodos()
+comment5.params=membro
+comment5.target=int\ atualizar(MembroTime)
+comment6.params=membro
+comment6.target=int\ excluir(MembroTime)
+comment7.params=id
+comment7.target=int\ excluirPorId(java.lang.Integer)
+comment8.params=equipe
+comment8.target=java.util.List\ buscarPorEquipe(Equipe)
+numComments=9

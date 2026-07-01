@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=TipoEfetividade
+comment0.text=\r\n\ Tabela\ de\ efetividade\ entre\ tipos\ (TypeChart).\r\n\ multiplicador\:\ 2.0\ (forte),\ 0.5\ (fraco),\ 0.0\ (imune).\r\n\ So\ guarda\ os\ confrontos\ \!\=\ 1.0;\ o\ resto\ e\ neutro.\r\n
+comment1.params=
+comment1.target=TipoEfetividade()
+comment10.params=multiplicador
+comment10.target=void\ setMultiplicador(double)
+comment2.params=tipoAtacante\ tipoDefensor\ multiplicador
+comment2.target=TipoEfetividade(java.lang.String,\ java.lang.String,\ double)
+comment3.params=
+comment3.target=int\ getId()
+comment4.params=id
+comment4.target=void\ setId(int)
+comment5.params=
+comment5.target=java.lang.String\ getTipoAtacante()
+comment6.params=tipoAtacante
+comment6.target=void\ setTipoAtacante(java.lang.String)
+comment7.params=
+comment7.target=java.lang.String\ getTipoDefensor()
+comment8.params=tipoDefensor
+comment8.target=void\ setTipoDefensor(java.lang.String)
+comment9.params=
+comment9.target=double\ getMultiplicador()
+numComments=11

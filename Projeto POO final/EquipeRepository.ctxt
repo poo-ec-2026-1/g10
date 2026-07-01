@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=EquipeRepository
+comment1.params=connectionSource
+comment1.target=EquipeRepository(com.j256.ormlite.support.ConnectionSource)
+comment2.params=equipe
+comment2.target=Equipe\ salvar(Equipe)
+comment3.params=id
+comment3.target=Equipe\ buscarPorId(java.lang.Integer)
+comment4.params=
+comment4.target=java.util.List\ buscarTodos()
+comment5.params=equipe
+comment5.target=int\ atualizar(Equipe)
+comment6.params=equipe
+comment6.target=int\ excluir(Equipe)
+comment7.params=id
+comment7.target=int\ excluirPorId(java.lang.Integer)
+numComments=8

@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=PokemonRepository
+comment0.text=\r\n\ Repositorio\ de\ Pokemon\ (padrao\ Repository,\ igual\ ao\ StudentRepository\ do\ tutorial).\r\n\ Alem\ do\ CRUD\ basico,\ tem\ busca\ por\ nome,\ filtro\ por\ tipo\ e\ calculo\ de\ fraquezas.\r\n
+comment1.params=database
+comment1.target=PokemonRepository(Database)
+comment2.params=database
+comment2.target=void\ setDatabase(Database)
+comment3.params=pokemon
+comment3.target=Pokemon\ create(Pokemon)
+comment4.params=id
+comment4.target=Pokemon\ loadFromId(int)
+comment5.params=
+comment5.target=java.util.List\ loadAll()
+comment6.params=termo
+comment6.target=java.util.List\ loadByName(java.lang.String)
+comment6.text=Busca\ por\ nome\ (parcial,\ sem\ diferenciar\ maiusculas).\ Barra\ de\ pesquisa.
+comment7.params=tipo
+comment7.target=java.util.List\ loadByType(java.lang.String)
+comment7.text=Filtra\ por\ tipo\ (procura\ no\ tipo\ 1\ OU\ no\ tipo\ 2).\ Filtro\ da\ Pokedex.
+comment8.params=p
+comment8.target=java.util.Map\ fraquezasDe(Pokemon)
+comment8.text=\r\n\ Efetividade\ dos\ tipos\ atacantes\ CONTRA\ este\ Pokemon\ (dashboard\ /\ card).\r\n\ Combina\ os\ 1-2\ tipos\ e\ multiplica\ os\ multiplicadores\ em\ Java.\r\n\ Ex.\:\ Charizard\ ->\ {Rock\=4.0,\ Electric\=2.0,\ Water\=2.0,\ Ground\=0.0,\ ...}\r\n
+comment9.params=
+comment9.target=java.util.List\ getLoadedPokemons()
+numComments=10

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=PopularBanco
+comment0.text=\r\n\ Cria\ o\ banco\ pokedex.db\ do\ zero\ e\ popula\ tudo\ via\ ORMLite\:\r\n\ Pokemon\ (CSV)\ +\ Golpe\ (CSV)\ +\ TypeChart\ +\ Natures.\r\n\r\n\ Como\ rodar\ no\ BlueJ\:\ clique\ com\ o\ botao\ direito\ nesta\ classe\ e\ escolha\r\n\ "void\ main(String[]\ args)".\ Os\ arquivos\ .csv\ precisam\ estar\ na\ pasta\ do\ projeto.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=repo
+comment2.target=void\ popularPokemons(PokemonRepository)
+comment3.params=repo
+comment3.target=void\ popularGolpes(GolpeRepository)
+comment4.params=repo
+comment4.target=void\ popularTypeChart(TipoEfetividadeRepository)
+comment5.params=repo
+comment5.target=void\ popularNatures(NatureRepository)
+comment6.params=arquivo
+comment6.target=java.io.BufferedReader\ abrir(java.lang.String)
+comment6.text=Abre\ um\ CSV\ da\ pasta\ do\ projeto,\ em\ UTF-8\ (pros\ caracteres\ do\ Nidoran).
+numComments=7
