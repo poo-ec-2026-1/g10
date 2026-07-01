@@ -1,48 +1,105 @@
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.support.ConnectionSource;
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ArrayList;
 
-public class MembroTimeRepository {
+/**
+ * Repositorio de MembroTime (padrao Repository, mesmo molde dos demais).
+ * Cada MembroTime representa um Pokemon dentro de uma Equipe, podendo ter
+ * nature e golpe personalizados sem afetar a Pokedex.
+ */
+public class MembroTimeRepository
+{
+    private static Database database;
+    private static Dao<MembroTime, Integer> dao;
+    private List<MembroTime> loadedMembros;
 
-    private Dao<MembroTime, Integer> dao;
-
-    public MembroTimeRepository(ConnectionSource connectionSource) throws SQLException {
-        this.dao = DaoManager.createDao(connectionSource, MembroTime.class);
-        // Cria a tabela automaticamente se ela não existir
-        com.j256.ormlite.table.TableUtils.createTableIfNotExists(connectionSource, MembroTime.class);
+    public MembroTimeRepository(Database database) {
+        MembroTimeRepository.setDatabase(database);
+        loadedMembros = new ArrayList<MembroTime>();
     }
 
-    public MembroTime salvar(MembroTime membro) throws SQLException {
-        dao.createOrUpdate(membro);
+    public static void setDatabase(Database database) {
+        MembroTimeRepository.database = database;
+        try {
+            dao = DaoManager.createDao(database.getConnection(), MembroTime.class);
+            TableUtils.createTableIfNotExists(database.getConnection(), MembroTime.class);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
+    public MembroTime create(MembroTime membro) {
+        try {
+            int nrows = dao.create(membro);
+            if (nrows == 0)
+                throw new SQLException("Error: object not saved");
+            loadedMembros.add(membro);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
         return membro;
     }
 
-    public MembroTime buscarPorId(Integer id) throws SQLException {
-        return dao.queryForId(id);
+    public MembroTime loadFromId(int id) {
+        try {
+            return dao.queryForId(id);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
     }
 
-    public List<MembroTime> buscarTodos() throws SQLException {
-        return dao.queryForAll();
+    public List<MembroTime> loadAll() {
+        try {
+            this.loadedMembros = dao.queryForAll();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return this.loadedMembros;
     }
 
-    public int atualizar(MembroTime membro) throws SQLException {
-        return dao.update(membro);
+    public int update(MembroTime membro) {
+        try {
+            return dao.update(membro);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        }
     }
 
-    public int excluir(MembroTime membro) throws SQLException {
-        return dao.delete(membro);
+    public int delete(MembroTime membro) {
+        try {
+            return dao.delete(membro);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        }
     }
 
-    public int excluirPorId(Integer id) throws SQLException {
-        return dao.deleteById(id);
+    public int deleteById(int id) {
+        try {
+            return dao.deleteById(id);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        }
     }
 
-    public List<MembroTime> buscarPorEquipe(Equipe equipe) throws SQLException {
-        QueryBuilder<MembroTime, Integer> queryBuilder = dao.queryBuilder();
-        queryBuilder.where().eq(MembroTime.COL_EQUIPE, equipe);
-        return queryBuilder.query();
+    /** Retorna todos os membros de uma equipe (usado pela tela de time). */
+    public List<MembroTime> loadByEquipe(Equipe equipe) {
+        try {
+            QueryBuilder<MembroTime, Integer> qb = dao.queryBuilder();
+            qb.where().eq(MembroTime.COL_EQUIPE, equipe);
+            return qb.query();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return new ArrayList<MembroTime>();
+        }
     }
+
+    public List<MembroTime> getLoadedMembros() { return loadedMembros; }
 }

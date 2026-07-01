@@ -21,7 +21,6 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextInputDialog;
-import java.sql.SQLException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,14 +62,11 @@ public class AppPokedex extends Application
         pokemonRepo = new PokemonRepository(db);
         golpeRepo = new GolpeRepository(db);
         natureRepo = new NatureRepository(db);
-        
-        try {
-            equipeRepo = new EquipeRepository(db.getConnection());
-            membroRepo = new MembroTimeRepository(db.getConnection());
-        } catch (SQLException e) {
-            e.printStackTrace();
-            alerta("Erro ao iniciar o banco de dados dos times.");
-        }
+
+        // EquipeRepository e MembroTimeRepository recebem o Database (nao a Connection)
+        // e ja tratam SQLException internamente, entao nao precisam de try/catch aqui.
+        equipeRepo = new EquipeRepository(db);
+        membroRepo = new MembroTimeRepository(db);
 
         root = new BorderPane();
         root.setStyle("-fx-background-color: #eef1f5;");
@@ -341,21 +337,17 @@ public class AppPokedex extends Application
         if (result.isPresent()) {
             String nome = result.get().trim();
             if (nome.isEmpty()) return;
-            
-            try {
-                // 1. Cria a Equipe e salva no banco
-                Equipe eq = new Equipe(nome);
-                equipeRepo.salvar(eq);
-                
-                // 2. Salva cada membro do time atrelado a essa equipe
-                for (MembroTime mt : time) {
-                    MembroTime novoDb = new MembroTime(eq, mt.getPokemon(), mt.getNature(), mt.getGolpe());
-                    membroRepo.salvar(novoDb);
-                }
-                alerta("Time '" + nome + "' salvo com sucesso!");
-            } catch (SQLException ex) {
-                alerta("Erro ao salvar no banco: " + ex.getMessage());
+
+            // 1. Cria a Equipe e salva no banco (EquipeRepository.create trata o SQLException internamente)
+            Equipe eq = new Equipe(nome);
+            equipeRepo.create(eq);
+
+            // 2. Salva cada membro do time atrelado a essa equipe
+            for (MembroTime mt : time) {
+                MembroTime novoDb = new MembroTime(eq, mt.getPokemon(), mt.getNature(), mt.getGolpe());
+                membroRepo.create(novoDb);
             }
+            alerta("Time '" + nome + "' salvo com sucesso!");
         }
     }
 
@@ -370,18 +362,14 @@ public class AppPokedex extends Application
         titulo.setFont(Font.font("System", FontWeight.BOLD, 20));
         
         lista.getChildren().addAll(btnVoltar, titulo);
-        
-        try {
-            List<Equipe> equipes = equipeRepo.buscarTodos();
-            if (equipes.isEmpty()) {
-                lista.getChildren().add(new Label("Você ainda não tem nenhum time salvo."));
-            } else {
-                for (Equipe eq : equipes) {
-                    lista.getChildren().add(linhaEquipeSalva(eq));
-                }
+
+        List<Equipe> equipes = equipeRepo.loadAll();
+        if (equipes.isEmpty()) {
+            lista.getChildren().add(new Label("Você ainda não tem nenhum time salvo."));
+        } else {
+            for (Equipe eq : equipes) {
+                lista.getChildren().add(linhaEquipeSalva(eq));
             }
-        } catch (SQLException ex) {
-            lista.getChildren().add(new Label("Erro ao carregar os times do banco."));
         }
         
         ScrollPane sp = new ScrollPane(lista);
@@ -395,19 +383,15 @@ public class AppPokedex extends Application
     private HBox linhaEquipeSalva(Equipe eq) {
     Label lblNome = new Label(eq.getNome());
     lblNome.setFont(Font.font("System", FontWeight.BOLD, 16));
-    
+
     String nomesPokemons = "Vazio";
-    try {
-        List<MembroTime> membros = membroRepo.buscarPorEquipe(eq);
-        if (!membros.isEmpty()) {
-            List<String> listaNomes = new ArrayList<>();
-            for (MembroTime mt : membros) {
-                listaNomes.add(mt.getPokemon().getNome());
-            }
-            nomesPokemons = String.join(", ", listaNomes);
+    List<MembroTime> membros = membroRepo.loadByEquipe(eq);
+    if (!membros.isEmpty()) {
+        List<String> listaNomes = new ArrayList<>();
+        for (MembroTime mt : membros) {
+            listaNomes.add(mt.getPokemon().getNome());
         }
-    } catch (SQLException ex) {
-        nomesPokemons = "Erro ao carregar Pokémon";
+        nomesPokemons = String.join(", ", listaNomes);
     }
     
     Label lblMembros = new Label(nomesPokemons);
@@ -440,36 +424,28 @@ public class AppPokedex extends Application
     }
 
     private void carregarEquipe(Equipe eq) {
-        try {
-            List<MembroTime> membros = membroRepo.buscarPorEquipe(eq);
-            time.clear(); // Limpa o time atual da memória
-            
-            for (MembroTime mt : membros) {
-                // Adiciona os membros carregados do banco na memória RAM
-                time.add(mt);
-            }
-            alerta("Time '" + eq.getNome() + "' carregado com sucesso!");
-            mostrarTime(); // Vai direto para a tela do time para ver os pokemons carregados
-        } catch (SQLException ex) {
-            alerta("Erro ao carregar o time: " + ex.getMessage());
+        List<MembroTime> membros = membroRepo.loadByEquipe(eq);
+        time.clear(); // Limpa o time atual da memória
+
+        for (MembroTime mt : membros) {
+            // Adiciona os membros carregados do banco na memória RAM
+            time.add(mt);
         }
-        }
+        alerta("Time '" + eq.getNome() + "' carregado com sucesso!");
+        mostrarTime(); // Vai direto para a tela do time para ver os pokemons carregados
+    }
 
     private void excluirEquipe(Equipe eq) {
-        try {
-            // Primeiro exclui os membros para não deixar dados "órfãos" no banco
-            List<MembroTime> membros = membroRepo.buscarPorEquipe(eq);
-            for (MembroTime mt : membros) {
-                membroRepo.excluir(mt);
-            }
-            // Depois exclui a equipe
-            equipeRepo.excluir(eq);
-            
-            // Atualiza a tela para sumir a linha
-            mostrarTimesSalvos();
-        } catch (SQLException ex) {
-            alerta("Erro ao excluir o time: " + ex.getMessage());
+        // Primeiro exclui os membros para não deixar dados "órfãos" no banco
+        List<MembroTime> membros = membroRepo.loadByEquipe(eq);
+        for (MembroTime mt : membros) {
+            membroRepo.delete(mt);
         }
+        // Depois exclui a equipe
+        equipeRepo.delete(eq);
+
+        // Atualiza a tela para sumir a linha
+        mostrarTimesSalvos();
     }
 
     // ============================== UTILITARIOS ==============================
@@ -640,13 +616,9 @@ public class AppPokedex extends Application
     if (result.isPresent()) {
         String novoNome = result.get().trim();
         if (!novoNome.isEmpty() && !novoNome.equals(eq.getNome())) {
-            try {
-                eq.setNome(novoNome);
-                equipeRepo.atualizar(eq); // Atualiza no banco de dados
-                lblNome.setText(novoNome); // Atualiza visualmente na tela
-            } catch (SQLException ex) {
-                alerta("Erro ao renomear o time: " + ex.getMessage());
-            }
+            eq.setNome(novoNome);
+            equipeRepo.update(eq); // Atualiza no banco de dados
+            lblNome.setText(novoNome); // Atualiza visualmente na tela
         }
     }
     }

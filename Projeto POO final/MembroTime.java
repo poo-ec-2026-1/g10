@@ -43,6 +43,13 @@ public class MembroTime implements Serializable {
         this.nature = nature;
         this.golpe = golpe;
     }
+    
+        // Construtor para carregar o time do banco para a memória RAM
+    public MembroTime(Pokemon pokemon, String nature, String golpe) {
+        this.pokemon = pokemon;
+        this.nature = nature;
+        this.golpe = golpe;
+    }
 
     public Integer getId() {
         return id;
