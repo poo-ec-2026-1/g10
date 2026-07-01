@@ -1,0 +1,40 @@
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+import java.io.Serializable;
+
+@DatabaseTable(tableName = "equipes")
+public class Equipe implements Serializable {
+
+    public static final String COL_ID = "id";
+    public static final String COL_NOME = "nome";
+
+    @DatabaseField(columnName = COL_ID, generatedId = true)
+    private Integer id;
+
+    @DatabaseField(columnName = COL_NOME, canBeNull = false)
+    private String nome;
+
+    public Equipe() {
+        // Construtor vazio exigido pelo ORMLite
+    }
+
+    public Equipe(String nome) {
+        this.nome = nome;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
