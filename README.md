@@ -93,8 +93,3 @@ Ou seja: enquanto a PokeAPI resolve o problema de *fornecer dados*, este projeto
 
 ---
 
-## 5. Próximos passos identificados
-
-- Adicionar EVs/IVs à simulação de stats (previstos no planejamento, ainda não implementados na interface).
-- Cobrir os fluxos de CRUD de equipe com testes manuais documentados, para reforçar o ponto de "validação de interfaces" cobrado no feedback.
-- Avaliar separação futura em MVC mais formal (Model / View / Controller explícitos), caso o projeto cresça além do escopo atual.
