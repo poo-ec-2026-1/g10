@@ -18,7 +18,7 @@ Desenvolver uma aplicação desktop em Java funcional, estável e com interface 
 ### 2.2 Objetivos Específicos
 * **Módulo Pokédex (Consulta):** Implementar uma interface de listagem eficiente com suporte a rolagem, filtros por tipo (Fogo, Água, Grama, etc.) e uma barra de pesquisa responsiva por nome ou número identificador.
 * **Tela de Detalhes Expandida:** Desenvolver uma interface de transição que exiba o Pokémon selecionado de forma ampliada, contendo seus sprites em alta definição, seus stats base detalhados ($HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed$) e sua lista de fraquezas elementares.
-* **Módulo Team Builder (CRUD):** Criar um sistema completo de gerenciamento de dados que permita ao usuário Criar, Ler, Atualizar e Deletar equipes personalizadas de até 4 Pokémons (Um formato existente no pokémon competitivo), além de seleção de $Natures$, $IVs$ e $EVs$
+* **Módulo Team Builder (CRUD):** Criar um sistema completo de gerenciamento de dados que permita ao usuário Criar, Ler, Atualizar e Deletar equipes personalizadas de até 4 Pokémons (Um formato existente no pokémon competitivo), além de seleção de $Natures$
 * **Arquitetura de Dados:** Configurar um banco de dados relacional **SQLite** persistente e otimizado, alimentado por um script automatizado de conversão a partir de uma base de dados pública (CSV).
 
 ---
