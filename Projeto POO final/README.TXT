@@ -26,6 +26,8 @@ ormlite-jdbc-6.1
 slf4j-api-2.0.13
 slf4j-simple-2.0.13
 
+ATENÇÂO: NESTA PASTA DO PROJETO EXISTE UMA PASTA CHAMADA lib COM TODAS AS BIBLIOTECAS, CASO QUEIRA SER MAIS PRÁTICO.
+
 2. **Base de Dados**: O arquivo de banco de dados SQLite contendo as tabelas populadas deve ser posicionado obrigatoriamente no diretório raiz do projeto com o nome exato de `pokedex.db`.
 3. **Execução**: Configure os parâmetros de inicialização de módulos da VM (`--module-path` e `--add-modules javafx.controls`) e execute o método `main` contido na classe principal `AppPokedex.java` para renderizar a janela da aplicação. No BlueJ é so clicar com o botão direito em cima da classe appPokedex e clicar em "Executar a aplicação em JavaFX".
 
