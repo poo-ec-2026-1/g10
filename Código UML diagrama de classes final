@@ -1,0 +1,118 @@
+@startuml
+class Pokemon {
+  -id : int
+  -nome : String
+  -hp : int
+  -ataque : int
+  -defesa : int
+  -spAtk : int
+  -spDef : int
+  -velocidade : int
+  -spriteUrl : String
+  -tipo1 : String
+  -tipo2 : String
+  -golpe : String
+  +getTiposFormatados() : String
+}
+
+class Golpe {
+  -id : int
+  -nome : String
+  -tipo : String
+  -poder : Integer
+  -precisao : Integer
+  -categoria : String
+}
+
+class Nature {
+  -id : int
+  -nome : String
+  -statAumentada : String
+  -statReduzida : String
+}
+
+class TipoEfetividade {
+  -id : int
+  -tipoAtacante : String
+  -tipoDefensor : String
+  -multiplicador : double
+}
+
+class Equipe {
+  -id : Integer
+  -nome : String
+}
+
+class MembroTime {
+  -id : Integer
+  -equipe : Equipe
+  -pokemon : Pokemon
+  -nature : String
+  -golpe : String
+}
+
+class Database {
+  -databaseName : String
+  +getConnection() : JdbcConnectionSource
+  +close() : void
+}
+
+class PokemonRepository {
+  +create(Pokemon) : Pokemon
+  +loadAll() : List
+  +loadByName(String) : List
+  +loadByType(String) : List
+  +fraquezasDe(Pokemon) : Map
+}
+
+class GolpeRepository {
+  +loadAll() : List
+  +loadByName(String) : Golpe
+}
+
+class NatureRepository {
+  +loadAll() : List
+}
+
+class TipoEfetividadeRepository {
+  +loadAll() : List
+}
+
+class EquipeRepository {
+  +create(Equipe) : Equipe
+  +loadAll() : List
+  +delete(Equipe) : int
+}
+
+class MembroTimeRepository {
+  +create(MembroTime) : MembroTime
+  +loadByEquipe(Equipe) : List
+  +delete(MembroTime) : int
+}
+
+class AppPokedex {
+  -time : List
+  -MAX_TIME : int
+}
+
+MembroTime "0..*" --> "1" Equipe : pertence a
+MembroTime "0..*" --> "1" Pokemon : referencia
+PokemonRepository ..> Pokemon : gerencia
+PokemonRepository ..> TipoEfetividade : consulta
+GolpeRepository ..> Golpe : gerencia
+NatureRepository ..> Nature : gerencia
+TipoEfetividadeRepository ..> TipoEfetividade : gerencia
+EquipeRepository ..> Equipe : gerencia
+MembroTimeRepository ..> MembroTime : gerencia
+PokemonRepository --> Database : usa
+GolpeRepository --> Database : usa
+NatureRepository --> Database : usa
+TipoEfetividadeRepository --> Database : usa
+EquipeRepository --> Database : usa
+MembroTimeRepository --> Database : usa
+AppPokedex --> PokemonRepository : usa
+AppPokedex --> GolpeRepository : usa
+AppPokedex --> NatureRepository : usa
+AppPokedex --> EquipeRepository : usa
+AppPokedex --> MembroTimeRepository : usa
+@enduml
