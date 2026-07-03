@@ -1,3 +1,14 @@
+/**
+ * Repositório da entidade Equipe (time do usuário).
+ *
+ * Segue o padrão Repository do tutorial da disciplina, com DAO estático,
+ * método setDatabase para preparar o DAO e a tabela via TableUtils, e
+ * operações CRUD completas (create, loadFromId, loadAll, update, delete
+ * e deleteById), já que uma Equipe é uma entidade editável pelo usuário.
+ *
+ * Adicionado na Etapa 2 para suportar a persistência do time montado.
+ */
+
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.table.TableUtils;
