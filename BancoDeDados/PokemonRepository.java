@@ -32,6 +32,12 @@ public class PokemonRepository
         }
     }
 
+    /**
+     * Persiste um novo Pokémon no banco de dados.
+     *
+     * @param pokemon objeto Pokémon a ser salvo (deve ter os campos preenchidos)
+     * @return o próprio objeto após a persistência
+     */
     public Pokemon create(Pokemon pokemon) {
         try {
             int nrows = dao.create(pokemon);
@@ -43,7 +49,13 @@ public class PokemonRepository
         }
         return pokemon;
     }
-
+    
+    /**
+     * Busca um Pokémon pelo seu id (número da Pokédex).
+     *
+     * @param id número identificador do Pokémon (1 a 151)
+     * @return o Pokémon correspondente, ou null se não for encontrado
+     */
     public Pokemon loadFromId(int id) {
         Pokemon p = null;
         try {
@@ -53,7 +65,11 @@ public class PokemonRepository
         }
         return p;
     }
-
+/**
+     * Retorna todos os Pokémon cadastrados no banco.
+     *
+     * @return lista com os 151 Pokémon
+     */
     public List<Pokemon> loadAll() {
         try {
             this.loadedPokemons = dao.queryForAll();
@@ -62,7 +78,14 @@ public class PokemonRepository
         }
         return this.loadedPokemons;
     }
-
+ /**
+     * Busca Pokémon cujo nome contenha o termo informado.
+     * Utiliza o operador LIKE do SQL para busca parcial e case-insensitive.
+     * Usado pela barra de pesquisa da interface.
+     *
+     * @param termo trecho a ser procurado no nome (ex.: "pika" retorna "Pikachu")
+     * @return lista de Pokémon que contêm o termo no nome
+     */
     /** Busca por nome (parcial, sem diferenciar maiusculas). Barra de pesquisa. */
     public List<Pokemon> loadByName(String termo) {
         List<Pokemon> lista = new ArrayList<Pokemon>();
@@ -75,7 +98,13 @@ public class PokemonRepository
         }
         return lista;
     }
-
+ /**
+     * Filtra Pokémon por tipo, considerando tanto o tipo primário quanto o secundário.
+     * Usado pelo filtro de tipo da interface.
+     *
+     * @param tipo nome do tipo (ex.: "Fire", "Water")
+     * @return lista de Pokémon cujo tipo_1 ou tipo_2 corresponde ao valor
+     */
     /** Filtra por tipo (procura no tipo 1 OU no tipo 2). Filtro da Pokedex. */
     public List<Pokemon> loadByType(String tipo) {
         List<Pokemon> lista = new ArrayList<Pokemon>();
@@ -90,7 +119,16 @@ public class PokemonRepository
         }
         return lista;
     }
-
+/**
+     * Calcula as fraquezas e resistências de um Pokémon combinando seus tipos
+     * com a tabela de efetividade (TypeChart). Para Pokémon de dois tipos, os
+     * multiplicadores são multiplicados entre si (ex.: Rock 2x contra Fire e
+     * 2x contra Flying resulta em 4x contra Charizard).
+     *
+     * @param p Pokémon defensor
+     * @return mapa de tipo atacante para multiplicador de dano, ordenado do
+     *         mais perigoso para o menos perigoso
+     */
     /**
      * Efetividade dos tipos atacantes CONTRA este Pokemon (dashboard / card).
      * Combina os 1-2 tipos e multiplica os multiplicadores em Java.
