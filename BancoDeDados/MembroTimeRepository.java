@@ -1,3 +1,14 @@
+/**
+ * Repositório da entidade MembroTime (Pokémon dentro de um time).
+ *
+ * Segue o padrão Repository do tutorial da disciplina, com CRUD completo
+ * (create, loadFromId, loadAll, update, delete, deleteById) e um método
+ * adicional loadByEquipe(equipe), que utiliza QueryBuilder do ORMLite
+ * para retornar todos os membros associados a uma determinada Equipe.
+ *
+ * Adicionado na Etapa 2 para suportar a persistência do time montado.
+ */
+
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
