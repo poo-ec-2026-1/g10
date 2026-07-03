@@ -1,3 +1,57 @@
+# Pokédex & Team Builder
+
+### Descrição do Problema
+Atualmente, as bases de dados de Pokémon costumam ser densas e de difícil navegação para usuários que desejam apenas focar na nostalgia ou estratégia básica da **1ª Geração (Kanto)**. Além disso, as ferramentas existentes muitas vezes separam a consulta de dados (Pokédex) da simulação de montagem de times (Team Builder). Este projeto resolve essa fragmentação unindo dados simplificados de fraquezas e montagem de equipes em um único ecossistema desktop amigável, ágil e intuitivo.
+
+---
+
+## Visão Geral
+
+### Objetivo Geral
+Desenvolver uma aplicação desktop em Java funcional, estável e com interface gráfica amigável (GUI), que funcione como uma Pokédex completa dos 151 Pokémon da primeira geração, integrada a um sistema de gerenciamento (CRUD) de equipes.
+
+### Objetivos Específicos
+* **Módulo Pokédex (Consulta):** Implementar uma interface de listagem eficiente com suporte a rolagem, filtros por tipo (Fogo, Água, Grama, etc.) e uma barra de pesquisa responsiva por nome.
+* **Tela de Detalhes Expandida:** Desenvolver uma interface de transição que exiba o Pokémon selecionado de forma ampliada, contendo seus sprites em alta definição, seus stats base detalhados ($HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed$) e sua lista de fraquezas e resistências.
+* **Módulo Team Builder (CRUD):** Criar um sistema completo de gerenciamento de dados que permita ao usuário Criar, Ler, Atualizar e Deletar equipes personalizadas de até 4 Pokémons (Um formato existente no pokémon competitivo), além de seleção de $Natures$
+* **Arquitetura de Dados:** Configurar um banco de dados relacional **SQLite** persistente e otimizado, alimentado por um script automatizado de conversão a partir de uma base de dados pública (CSV).
+
+---
+# Produção Individual - Lucca de Amorim Romacheli e Melo Rocha / 202503255
+
+**Papel Principal:** Líder de Projeto / Documentação / Ajuda em trabalho conjunto
+ 
+## 1. Atribuição de Cargo e Tarefas
+
+### Atribuição A Priori e Responsabilidades
+Como **Líder de Projeto e Responsável pela Documentação**, minhas responsabilidades iniciais planejadas para a Etapa 1 envolviam a governança do repositório, definição e atribuição de prazos e tarefas (*issues*) no GitHub, especificação inicial dos requisitos de software e a garantia de que o projeto estivesse alinhado com o escopo de entregar 20% da aplicação.
+
+### Atuação na Prática
+Na prática, além de exercer a liderança organizacional e metodológica, assumi um papel de **arquiteto de informações e dados** na largada do projeto. Atuei diretamente na idealização do ecossistema do software, estruturei toda a documentação global de especificação e trabalhei ativamente na concepção do banco de dados, criando e tratando o arquivo CSV inicial (contendo os dados brutos dos 151 Pokémon) que serviu de fundação indispensável para a modelagem do banco SQLite executada pelo backend.
+
+---
+
+## 2. Contribuição de Acordo com a Atribuição
+
+### Entregas Cumpridas
+* **Elaboração da Documentação Global (Seções 1 a 4):** Redigi e estruturei completamente o documento de especificação do projeto em Markdown, definindo a justificativa, descrição do problema, objetivos macros, escopo do *Team Builder* com regras de *Natures*, e o cronograma detalhado de issues, fiz o planejamento do projeto, ev também fiz minha parte do readme.
+* **Mapeamento de Tarefas e Cronograma:** Dividi o projeto em 4 fases lógicas e distribuí as frentes de trabalho entre os integrantes (Gabriel, Luis, Guilherme e eu), garantindo a organização do fluxo de trabalho.
+* **Criação da Base de Dados Primária:** Desenvolvi e limpei o arquivo CSV inicial com as métricas de Kanto, garantindo que o grupo tivesse dados estruturados para iniciar a codificação das entidades Java e tabelas SQL.
+* **Organização do GitHub:** Fui responsável por deixar o repositório do projeto sempre limpo e organizado, para que nada fique confuso e nos atrapalhasse durante o desenvolvimento dele, no final do projeto, Guilherme me ajudou a colocar todos os arquivos no lugar certo.
+* **Trabalho conjunto:** Por termos um grupo menor, dividimos algumas coisas entre todo mundo, como os testes (ainda não feitos), mas também a idealização do projeto, ideias, algo que todos no grupo ajudaram.
+
+
+---
+
+## 3. Contribuição Além do Atribuído
+
+Embora meu papel estivesse focado na gestão e escrita de documentos, atuei diretamente na **Engenharia de Dados e Concepção Técnica**. 
+
+* **Parceria no Backend:** Não me limitei a delegar o banco de dados; trabalhei em conjunto com o desenvolvedor backend (Luis) para planejar como o CSV seria convertido para o SQLite, sugerindo e desenhando a inclusão de colunas estratégicas como *Move Assinatura* e a estrutura de mapeamento de *Fraquezas Elementares*, adiantando problemas de modelagem que só apareceriam na fase de código.
+* **Facilitação de Alinhamento:** Atuei como a ponte de comunicação entre a modelagem conceitual (UML) e o design de telas (Mockups), garantindo que as interfaces pensadas pelo frontend estivessem em perfeita sinergia com os dados que eu havia estruturado no CSV.
+
+---
+
 # Módulo de Interface Gráfica (JavaFX) — Pokédex & Team Builder
 
 **Responsável:** Guilherme Filho — Desenvolvedor Frontend
