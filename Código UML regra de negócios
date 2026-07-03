@@ -1,0 +1,33 @@
+@startuml
+partition "Montar time" {
+start
+:Selecionar Pokémon;
+if (Time já tem 4?) then (sim)
+  :Bloqueia inserção: alerta de time cheio;
+  stop
+else (não)
+  :Adiciona MembroTime (nature = Nenhuma);
+endif
+if (Nature tem stat alterada?) then (sim)
+  :+10% na aumentada / -10% na reduzida (HP não muda);
+else (não)
+  :Stats permanecem na base;
+endif
+:Calcular fraquezasDe do Pokémon;
+:Multiplica multiplicador de tipo_1 e tipo_2;
+if (Resultado = 1.0?) then (sim)
+  :Descartado, neutro;
+else (não)
+  :Exibido como fraqueza ou resistência;
+endif
+stop
+}
+
+partition "Excluir equipe" {
+start
+:Excluir equipe;
+:Remove MembroTime vinculados;
+:Remove a Equipe;
+stop
+}
+@enduml
