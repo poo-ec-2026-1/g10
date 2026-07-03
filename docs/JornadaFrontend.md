@@ -28,6 +28,14 @@ O segundo obstáculo foi o planejamento da minha parte do projeto. Eu não tinha
 
 O terceiro problema apareceu já durante a implementação. Trabalhar com FXML se mostrou bastante trabalhoso, principalmente pela necessidade de criar controllers separados para cada parte da interface, o que tornava o processo lento e propenso a erros de vinculação entre tela e código. Como solução, optei por abandonar o uso de FXML e concentrar toda a interface em uma única classe, `AppPokedex`, onde a parte gráfica é construída diretamente por código, junto de todos os métodos necessários para seu funcionamento. Essa mudança simplificou bastante o desenvolvimento e eliminou a fonte principal de erros que eu vinha enfrentando.
 
+### 2.4 Configuração das Bibliotecas Necessárias
+
+Outra dificuldade relevante foi conseguir configurar corretamente todas as bibliotecas externas necessárias para que o projeto rodasse na minha máquina, como o JavaFX SDK, o ORMLite e o driver JDBC do SQLite. Referenciar essas bibliotecas corretamente no BlueJ, garantindo que estivessem no classpath do projeto, exigiu diversas tentativas até que o ambiente ficasse configurado de forma estável — um processo que precisei repetir mais de uma vez, inclusive ao configurar o projeto em computadores diferentes.
+
+### 2.5 Adaptações e Implementação de Novas Funcionalidades
+
+Ao longo do desenvolvimento, também enfrentei dificuldade em implementar certas alterações e funcionalidades específicas na interface. Um exemplo foi a criação das barras coloridas de status dos Pokémon, que exigiu ajustar a lógica visual para que a cor da barra mudasse dinamicamente de acordo com o valor de cada status. De forma mais ampla, também foi desafiador adaptar a interface para atender ao CRUD completo de times: inicialmente, a aplicação não contava com a opção de criar e salvar times, apenas de montá-los temporariamente em memória. Foi necessário reestruturar parte da interface para incluir as telas e ações de salvar, carregar, renomear e excluir times, integrando essas novas funcionalidades aos repositórios responsáveis pela persistência no banco de dados.
+
 ---
 
 ## 3. Apoio e Colaboração da Equipe
@@ -51,6 +59,16 @@ Além do desenvolvimento da interface gráfica, contribuí em outras frentes do 
 
 ---
 
-## 5. Considerações Finais
+## 5. Aprendizados
+
+Ao longo do desenvolvimento da minha parte do projeto, destaco três aprendizados principais:
+
+- **Planejamento de layout:** aprendi que é sempre melhor ter um esqueleto da parte gráfica definido antes de efetivamente implementá-la, evitando retrabalho e permitindo visualizar o fluxo entre telas antes de escrever o código.
+- **Interface sem arquivo `.fxml`:** aprendi que é possível construir uma interface JavaFX completa e funcional sem depender de arquivos `.fxml` e de controllers separados, montando todos os componentes gráficos diretamente por código em uma única classe.
+- **Conceito de CRUD:** aprendi de forma mais aprofundada o conceito fundamental de CRUD (Criar, Ler, Atualizar e Deletar) e como implementá-lo na prática dentro do projeto, integrando a interface gráfica às operações de persistência de times no banco de dados.
+
+---
+
+## 6. Considerações Finais
 
 Ao longo do projeto, as principais dificuldades — escolha do tema, planejamento inicial sem referência clara e os desafios técnicos com FXML — foram superadas por meio de pesquisa, apoio da equipe e disposição para mudar de abordagem quando uma solução não estava funcionando bem (como a troca de FXML por uma interface construída inteiramente em código). O suporte constante dos colegas, somado à organização definida por Lucca, foi essencial para que eu pudesse concluir minha parte com foco e sem sobrecarga de decisões fora do meu escopo.
