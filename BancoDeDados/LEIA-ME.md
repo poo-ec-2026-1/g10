@@ -77,3 +77,16 @@ repo.fraquezasDe(charizard);  // {Rock=4.0, Water=2.0, Ground=0.0, ...} -> dashb
 - Os golpes são **só visuais** (1 por Pokémon, sem sistema de combate).
 - Se o projeto integrado usar `package`, é só adicionar a linha `package ...;`
   no topo de cada arquivo.
+
+## Novos repositórios (Etapa 2)
+
+Foram adicionados dois novos repositórios para suportar a persistência
+do time montado pelo usuário, seguindo o mesmo padrão dos anteriores:
+
+- **EquipeRepository.java** — gerencia os times (equipes) criados pelo
+  usuário. Além do CRUD básico (create, loadFromId, loadAll), possui
+  update, delete e deleteById, já que um time é editável.
+- **MembroTimeRepository.java** — gerencia cada Pokémon dentro de uma
+  equipe. Além do CRUD completo, possui o método loadByEquipe(equipe),
+  que utiliza QueryBuilder do ORMLite para retornar todos os membros
+  de uma equipe específica.
