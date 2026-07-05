@@ -38,7 +38,7 @@ Na prática, além de exercer a liderança organizacional e metodológica, assum
 * **Mapeamento de Tarefas e Cronograma:** Dividi o projeto em 4 fases lógicas e distribuí as frentes de trabalho entre os integrantes (Gabriel, Luis, Guilherme e eu), garantindo a organização do fluxo de trabalho.
 * **Criação da Base de Dados Primária:** Desenvolvi e limpei o arquivo CSV inicial com as métricas de Kanto, garantindo que o grupo tivesse dados estruturados para iniciar a codificação das entidades Java e tabelas SQL.
 * **Organização do GitHub:** Fui responsável por deixar o repositório do projeto sempre limpo e organizado, para que nada fique confuso e nos atrapalhasse durante o desenvolvimento dele, no final do projeto, Guilherme me ajudou a colocar todos os arquivos no lugar certo.
-* **Trabalho conjunto:** Por termos um grupo menor, dividimos algumas coisas entre todo mundo, como os testes (ainda não feitos), mas também a idealização do projeto, ideias, algo que todos no grupo ajudaram.
+* **Trabalho conjunto:** Por termos um grupo menor, dividimos algumas coisas entre todo mundo, como os testes, mas também a idealização do projeto, algo que todos no grupo ajudaram.
 
 
 ---
