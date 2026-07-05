@@ -24,7 +24,7 @@ Desenvolver uma aplicação desktop em Java funcional, estável e com interface 
 ## 1. Atribuição de Cargo e Tarefas
 
 ### Atribuição A Priori e Responsabilidades
-Como **Líder de Projeto e Responsável pela Documentação**, minhas responsabilidades iniciais planejadas para a Etapa 1 envolviam a governança do repositório, definição e atribuição de prazos e tarefas (*issues*) no GitHub, especificação inicial dos requisitos de software e a garantia de que o projeto estivesse alinhado com o escopo de entregar 20% da aplicação.
+Como **Líder de Projeto e Responsável pela Documentação**, minhas responsabilidades iniciais planejadas para a Etapa 1 envolviam a governança do repositório, definição e atribuição de prazos e tarefas (*issues*) no GitHub, especificação inicial dos requisitos de software e a garantia de que o projeto estivesse alinhado com o escopo.
 
 ### Atuação na Prática
 Na prática, além de exercer a liderança organizacional e metodológica, assumi um papel de **arquiteto de informações e dados** na largada do projeto. Atuei diretamente na idealização do ecossistema do software, estruturei toda a documentação global de especificação e trabalhei ativamente na concepção do banco de dados, criando e tratando o arquivo CSV inicial (contendo os dados brutos dos 151 Pokémon) que serviu de fundação indispensável para a modelagem do banco SQLite executada pelo backend.
